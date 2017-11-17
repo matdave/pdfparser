@@ -1,4 +1,4 @@
-#PDFparser
+# PDFparser
 
 A MODX plugin that allows PDFs to be searched. Just save a static resource with a PDF!
 
