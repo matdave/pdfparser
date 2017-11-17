@@ -1,4 +1,5 @@
 config.core.php
 .idea
 node_modules
+/_build/build.config.php
 /core/components/pdfparser/composer.lock
