@@ -1,0 +1,28 @@
+{
+    "name": "pdfparser",
+    "lowCaseName": "pdfparser",
+    "description": "A MODX extra to make PDF Resources Searchable.",
+    "author": "matdave",
+    "version": "0.0.1",
+    "release": "beta",
+    "package":{  
+        "menus": [],
+        "elements": {
+            "plugins": [{
+                "name": "pdfparser",
+                "description": "pdfparser plugin for MODX Revolution",
+                "file": "pdfparser.plugin.php",
+                "events": [
+                    "OnDocFormSave"
+                ]
+            }]
+        },
+        "systemSettings": []
+    },
+    "database": {},
+    "build": {
+        "resolver": {
+            "before": ["resolve.systemevents.php"]
+        }
+    }
+}
