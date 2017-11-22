@@ -44,6 +44,13 @@ class pdfparser
         $parser = new Parser();
         $pdf = $parser->parseFile($filename);
         $text = $pdf->getText();
+        $text = $this->trim($text);
+        return $text;
+    }
+
+    private function trim($text){
+        $text = trim($text);
+        $text = preg_replace('/\s+/', ' ',$text);
         return $text;
     }
 }
