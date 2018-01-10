@@ -48,9 +48,26 @@ class pdfparser
         return $text;
     }
 
+    public function createSlug($str, $delimiter = '-'){
+        $slug = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $str))))), $delimiter));
+        return $slug;
+    }
+
     private function trim($text){
         $text = trim($text);
         $text = preg_replace('/\s+/', ' ',$text);
         return $text;
+    }
+
+    public function searchDir($folder){
+        $pattern = '~([\\w/]\\S*?\\.[pP][dD][fF])~';
+        $dir = new RecursiveDirectoryIterator($folder);
+        $ite = new RecursiveIteratorIterator($dir);
+        $files = new RegexIterator($ite, $pattern, RegexIterator::GET_MATCH);
+        $fileList = array();
+        foreach($files as $file) {
+            $fileList = array_merge($fileList, $file);
+        }
+        return $fileList;
     }
 }

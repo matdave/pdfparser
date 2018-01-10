@@ -39,10 +39,10 @@ switch ($modx->event->name) {
             $content = $resource->get('content');
             if($class == 'modStaticResource'){
                 $file = realpath ($modx->getOption('base_path').$content);
-                if(substr($file, -4) == '.pdf'){
+                if(substr($file, -4) == '.pdf' || substr($file, -4) == '.PDF'){
                     if($contentType != 'application/pdf'){
                         $resource->set('contentType', 'application/pdf');
-                        $modx->log(xPDO::LOG_LEVEL_ERROR, "pdfparser - Changed  contentType for $file");
+                        $modx->log(xPDO::LOG_LEVEL_ERROR, "pdfparser - Changed contentType for $file");
                     }
                     $resource->set('template',0);
                     if(file_exists($file)){
