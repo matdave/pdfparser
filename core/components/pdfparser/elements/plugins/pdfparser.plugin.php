@@ -49,10 +49,10 @@ switch ($modx->event->name) {
                         $text = $pdfparser->getText($file);
                         $resource->set('introtext',$text);
                     }else{
-                        $modx->log(xPDO::LOG_LEVEL_ERROR, "pdfparser - Coudln't find file at $file");
+                        $modx->log(xPDO::LOG_LEVEL_ERROR, "pdfparser - Couldn't find file at $file");
                     }
                     if(!$resource->save()){
-                        $modx->log(xPDO::LOG_LEVEL_ERROR, "pdfparser - Could not save $resource->id");
+                        $modx->log(xPDO::LOG_LEVEL_ERROR, "pdfparser - Couldn't save $resource->id");
                     }
                 }
             }
